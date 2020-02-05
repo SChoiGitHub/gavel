@@ -53,6 +53,7 @@ c = Config(CONFIG_FILE)
 
 # note: this should be kept in sync with 'config.template.yaml' and
 # 'config.vagrant.yaml'
+TRACK =               c.get('track',          'TRACK', default="")
 BASE_URL =            c.get('base_url',       'BASE_URL')
 ADMIN_PASSWORD =      c.get('admin_password', 'ADMIN_PASSWORD')
 DB_URI =              c.get('db_uri',         ['DATABASE_URL', 'DB_URI'], default='postgresql://localhost/gavel')
