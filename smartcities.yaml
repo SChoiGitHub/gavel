@@ -1,0 +1,32 @@
+runtime: python37
+
+service: smartcities
+
+env_variables:
+  TRACK : "(SmartCities)"
+  IGNORE_CONFIG_FILE : "true"
+  SECRET_KEY: "myo54235243542354hy5SmartCities2wsx0p/2wsx0p/423542342TdR49KPsQhc2Q9hYMzX18vSmartCities2wsx0p;/2wsx0p;/dU5KrbdYuewTLsgMCpHSc3NtwrWHneANV0PkLgnz56owaHl2bLfj7cgO7DJZSbkeptCCnHXIdcoVc9wluhECAtSZeuks2jwBhNRDry0Ge0G7L2cY6Q7t1cWIjwpbJs7hrTm2SxbVlg1VfGC8C1MCKGXNOpnin4JYoVxxT3lGcrYLcyMjO0wceIfMzuxA8stIJVmEK0UU7D7EecdgoHOJPl94MyBMQvUIGs64siHIH9cBxxY3U0tebEgV06vNIjfcpRi3prCCUKRzYOV1qJy1pgICcG01B2k5B5XbCFpajoK6WJr88VNaClyGJs6aPZYqV0ZvmZROd348kAs6QnbMdkFOXPqZVvkfdzzC8hxAkSFZO5l07BbTBiIwY354325ou423542354235re43254235ap432543254325pro4235435ach4235432542352435243i234532453245ngm24353245e7tgy24uio3v8yr97tyfguheiyov8f97tyfge2uh3yor8ueicannotf08dyouvhig3uy89veuwohi2ygbeatsadfhdisafhoisdafhaiosdthesh7guehivy8u7ghiey8r7gufehirhitou4g4gg4to32ffvalue"
+  #postgres+pg8000://<db_user>:<db_pass>@/<db_name>?unix_sock=/cloudsql/<cloud_sql_instance_name>/.s.PGSQL.5432
+  DB_URI: "postgres+pg8000://postgres:hIhn89c9bPcaBmLvkeFI5IfJrPcHAK8J@/sc_track?unix_sock=/cloudsql/hackku2020-gavel:us-central1:hackku2020gavel/.s.PGSQL.5432"
+  PORT: "5432"
+  ADMIN_PASSWORD: "SmartCities2w0p2w0p!"
+  DISABLE_EMAIL: "true"
+  BASE_URL: "_unused_"
+  EMAIL_FROM: "_unused_"
+  EMAIL_PASSWORD: "_unused_"
+
+entrypoint: python3 initialize.py; gunicorn -b :8080 -w 1 gavel:app
+
+handlers:
+- url: /.*
+  script: auto
+  secure: always
+
+
+#This is more expensive, but deploying it this way will remove any latency.
+instance_class: F2
+automatic_scaling:
+  min_idle_instances: 2
+  max_idle_instances: automatic
+  min_pending_latency: automatic
+  max_pending_latency: automatic
