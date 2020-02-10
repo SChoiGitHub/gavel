@@ -1,3 +1,11 @@
+Changes made by Sherman:
+
+* The templates have been modified to display the string specified by the "TRACK" variable.
+* Secret Login links can be seen in the admin dashboard.
+* Created Google App Engine compatiables *.yaml files and GCloud related files (The services have been taken down)
+* Old config files have been removed. (Configurations done through enviroment variables instead)
+* Python dependencies have been changed. Notably, pg8000 is the driver used in place of psycopg2.
+
 <img src="https://raw.githubusercontent.com/anishathalye/gavel/docs/banner.png" width="450" height="150" alt="Gavel banner">
 
 **Gavel** is a project expo judging system.
